@@ -1,0 +1,3 @@
+<launch>
+<node pkg="scarab_leader_follower_apriltag" type="scarab_leader_follower.py" name="leader_follower" output="screen" />
+</launch>

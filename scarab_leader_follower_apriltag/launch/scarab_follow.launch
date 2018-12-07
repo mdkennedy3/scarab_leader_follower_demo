@@ -1,0 +1,9 @@
+<launch>
+<include file="$(find scarab_leader_follower_apriltag)/launch/asus_kinect.launch" /> 
+
+<include file="$(find roboclaw_node)/launch/roboclaw_node44.launch">
+<!--
+<node pkg="scarab_leader_follower_apriltag" type="scarab_leader_follower.py" name="leader_follower" output="screen" />
+-->
+
+</launch>

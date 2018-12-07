@@ -1,0 +1,24 @@
+<launch>
+
+   <!-- for using kinect instead of head camera -->
+    <include file="$(find openni_launch)/launch/openni_old.launch" /> 
+
+  <node pkg="apriltags_ros" type="apriltag_detector_node" name="apriltag_detector2" output="screen" ns="camera/rgb">
+    <remap to="image_mono" from="image_rect"/>
+    <rosparam param="tag_descriptions">[
+      {id: 2, size: 0.08, frame_id: t2_kin},
+      {id: 3, size: 0.08, frame_id: t3_kin},
+      {id: 11, size: 0.08, frame_id: t11_kin}]
+    </rosparam>
+    <rosparam param="class_toggle">true
+    </rosparam>
+    <remap to="tag_detections_image2" from="tag_detections_image" />
+    <remap to="tag_detections2" from="tag_detections" />
+  </node>
+
+
+<!-- static_transform_publisher x y z qx qy qz qw frame_id child_frame_id  period_in_ms -->
+<!--
+<node pkg="tf" type="static_transform_publisher" name="kinect_broadcaster" args="0.09037876 -0.17960332  0.02550424 -0.27988194 -0.32314104 -0.61690693  0.66081148 head_camera camera_link 10"  />
+-->
+</launch>
